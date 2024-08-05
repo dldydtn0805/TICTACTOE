@@ -12,15 +12,11 @@ def generate_valid_tic_tac_toe_boards(idx, depth, string):
         return
     else:
         for i in range(idx+1, 9):
-            if not visited[i]:
-                visited[i] = 1
-                # 재귀를 통해 모든 경우를 탐색할 수 있다.
-                generate_valid_tic_tac_toe_boards(i, depth+1, string+'X')
-                generate_valid_tic_tac_toe_boards(i, depth+1, string+'O')
-                generate_valid_tic_tac_toe_boards(i, depth+1, string+'.')
-                visited[i] = 0
+            # 재귀를 통해 모든 경우를 탐색할 수 있다.
+            generate_valid_tic_tac_toe_boards(i, depth+1, string+'X')
+            generate_valid_tic_tac_toe_boards(i, depth+1, string+'O')
+            generate_valid_tic_tac_toe_boards(i, depth+1, string+'.')
 
-visited = [0 for _ in range(9)]
 valid_boards = []
 
 generate_valid_tic_tac_toe_boards(0, 0, 'X')
