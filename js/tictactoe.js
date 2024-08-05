@@ -137,7 +137,7 @@ oButton.addEventListener("click", () => {
     alert("맞았다. 정상적 틱택토였다...");
     score += 10;
   } else {
-    score -= 10;
+    score /= 2;
     alert("비정상적 틱택토였다....");
   }
   setTimeout(() => {
@@ -150,7 +150,7 @@ xButton.addEventListener("click", () => {
     score += 10;
   } else {
     alert("정상적 틱택토였다...");
-    score -= 10;
+    score /= 2;
   }
   setTimeout(() => {
     init();
