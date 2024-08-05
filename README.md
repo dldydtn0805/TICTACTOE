@@ -1,9 +1,13 @@
 # TICTACTOE
 
-![image](https://github.com/user-attachments/assets/6fc64e65-7767-4381-a56c-c6340dea569d)
 
 ![image](https://github.com/user-attachments/assets/0189f0d0-06c0-480f-93fa-703986f4e140)
 
-- 알고리즘 문제 틱택토 판단하기를 화면에 구현했습니다
 - 정답시 10점 증가하고 오답시 10점 감소합니다
-  
+- 선공은 X 입니다
+- X와 O는 번갈아가면서 돌을 놓습니다
+- 같은 돌 3개를 먼저 놓으면 승리입니다
+- 돌이 가득 차기 전에 게임이 끝나면 빈 공간이 있습니다
+- 빈 공간은 '.'입니다
+- 틱택토 이거나 무승부일 경우 O를 클릭합니다.
+- 불가능한 상황일 경우 X를 클릭합니다.
