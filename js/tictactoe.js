@@ -1,109 +1,9 @@
+import SAMPLE from "./sample.js";
+
 const areas = document.querySelectorAll(".playground > li");
 const oButton = document.querySelector(".o-button");
 const xButton = document.querySelector(".x-button");
 const status = document.querySelector(".status");
-const sample = [
-  "XXXOOO...",
-  "OOOXXX...",
-  "XOXOXOXOX",
-  "XXX......",
-  "OOO......",
-  "XOXOXOXXO",
-  "XOXOXOXO.",
-  "OXOXOXOXO",
-  "XOXOXOX..",
-  "XO.XO.XO.",
-  "XO.XOX.OX",
-  "XOX.OX..O",
-  "XXOXOOOX.",
-  "OXOXXOXXO",
-  "XXOOXOXOX",
-  "XXXOOOXX.",
-  "XOXXOXOOX",
-  "OXOXOXOX.",
-  "XOXOXOXX.",
-  "XOXXOXXOO",
-  "XOX.XOXOX",
-  "XO.OXOXOX",
-  "XO.XOXOXO",
-  "XXOXOXOOX",
-  "XXXOXOOO.",
-  "XOXOXOXO.",
-  "XO.XOX.XO",
-  "OXOXOXXOX",
-  "XOXXOX.OX",
-  "OXOXOXO.X",
-  "XXOOOXXX.",
-  "OXOXXOXOX",
-  "XXOXOOXOX",
-  "XXXOXOXOO",
-  "OOXXXOO.X",
-  "OXOXXOX.O",
-  "XXOOXOX.X",
-  "OXOXXOXOX",
-  "XOXXOXXOX",
-  "XOXOXOXOX",
-  "XXOXOXOXO",
-  "OXXOXOXOX",
-  "XXOXOXOX.",
-  "OXOXOXOX.",
-  "XO.OXOXOX",
-  "XXOXOXOXX",
-  "OXXOXOXXO",
-  "XXOXOXOXO",
-  "OXOXOXOXX",
-  "XOXXOXXXO",
-  "XOXOXOXOX",
-  "OXOXOXOXO",
-  "XXOXOXOXX",
-  "XOXXOXOXO",
-  "XXOXOXO.X",
-  "OXXOXOXOX",
-  "OXOXOXOXX",
-  "XOXOXOXOX",
-  "OXOXOXOX.",
-  "XXOXOXXXO",
-  "XOXXOXOX.",
-  "XXOXOXOXO",
-  "OXOXOXXOX",
-  "XXOXOXO.X",
-  "OXOXOXOXX",
-  "XOXOXOXOX",
-  "XO.OXOXOX",
-  "XXOXOXOX.",
-  "OXOXOXOXX",
-  "XOXOXOXO.",
-  "XXOXOXOXO",
-  "OXOXOXOX.",
-  "XXOXOXOXX",
-  "OXOXOXO.X",
-  "XOXXOXOXO",
-  "XXOXOXOX.",
-  "OXOXOXOXO",
-  "XXOXOXOXX",
-  "XOXXOXOX.",
-  "XXOXOXO.X",
-  "OXOXOXOX.",
-  "XO.OXOXOX",
-  "XXOXOXOXO",
-  "OXOXOXXOX",
-  "XXOXOXOXX",
-  "OXOXOXOX.",
-  "XXOXOXOXO",
-  "XOXXOXO.X",
-  "XXOXOXOXX",
-  "OXOXOXOXO",
-  "XXOXOXO.X",
-  "OXOXOXOXX",
-  "XXOXOXOXO",
-  "OXOXOXOX.",
-  "XXOXOXOXX",
-  "XO.OXOXOX",
-  "XXOXOXOXO",
-  "OXOXOXOX.",
-  "XXOXOXOXO",
-  "XOXXOXOX.",
-];
 
 let score = 0;
 let answer;
@@ -113,7 +13,7 @@ init();
 function init() {
   let idx = 0;
   status.innerText = score;
-  testCase = sample[Math.floor(Math.random() * sample.length)];
+  let testCase = SAMPLE[Math.floor(Math.random() * SAMPLE.length)];
   areas.forEach((area) => {
     area.innerHTML = testCase[idx];
     idx++;
@@ -127,9 +27,9 @@ function setBoard(areas) {
     board[i % 3].push(areas[i].innerHTML);
   }
   const tempBoard = [...board];
-  oCnt = 0;
-  xCnt = 0;
-  spaceCnt = 0;
+  let oCnt = 0;
+  let xCnt = 0;
+  let spaceCnt = 0;
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
       if (tempBoard[i][j] === "O") {
