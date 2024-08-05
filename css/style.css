@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to bottom right, #1a1a2e, #16213e);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.status {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.playground {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    width: 250px;
+    height: 250px;
+    border: 2px solid #45aaf2;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.playground > li {
+    display: flex;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    justify-content: center;
+    align-items: center;
+    background-color: #2f3640;
+    font-size: 24px;
+    color: #fff;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.playground > li:hover {
+    background-color: #353b48;
+    transform: scale(1.05);
+}
+
+.playground > li.active {
+    cursor: default;
+    transform: scale(1);
+}
+
+.button-wrapper {
+    margin-top: 20px;
+}
+
+.o-button, .x-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 5px;
+}
+
+.o-button {
+    background-color: #f78fb3;
+}
+
+.o-button:hover {
+    background-color: #f8a5c2;
+    transform: scale(1.05);
+}
+
+.x-button {
+    background-color: #546de5;
+}
+
+.x-button:hover {
+    background-color: #778beb;
+    transform: scale(1.05);
+}
+
+.description {
+    margin-top: 20px;
+    color: #fff;
+    font-size: 14px;
+    text-align: left;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    line-height: 1.5;
+}
