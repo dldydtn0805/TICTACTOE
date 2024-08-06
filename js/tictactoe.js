@@ -126,15 +126,6 @@ function isAvailable(board) {
     if (cross !== -1) {
       winner = board[1][1];
     }
-    if (row === 0 && col === 3) {
-      if (cross === 1) {
-        return false;
-      }
-    } else if (row === 3 && col === 0) {
-      if (cross === 2) {
-        return false;
-      }
-    }
     return winner;
   }
 }
