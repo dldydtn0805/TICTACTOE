@@ -4,9 +4,11 @@ const areas = document.querySelectorAll(".playground > li");
 const oButton = document.querySelector(".o-button");
 const xButton = document.querySelector(".x-button");
 const status = document.querySelector(".status");
+const firstMan = document.querySelector(".first-turn");
 
 let score = 0;
 let answer;
+let firstTurn, secondTurn
 
 init();
 
@@ -18,6 +20,11 @@ function init() {
     area.innerHTML = testCase[idx];
     idx++;
   });
+  let turns = ["X", "O"]
+  firstTurn = turns[Math.floor(Math.random()*turns.length)]
+  let rest = turns.filter((turn)=> turn !== firstTurn)
+  secondTurn = rest[0]
+  firstMan.innerText = firstTurn;
   answer = setBoard(areas);
 }
 
@@ -27,23 +34,23 @@ function setBoard(areas) {
     board[i % 3].push(areas[i].innerHTML);
   }
   const tempBoard = [...board];
-  let oCnt = 0;
-  let xCnt = 0;
+  let secondTurnCnt = 0;
+  let firstTurnCnt = 0;
   let spaceCnt = 0;
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
-      if (tempBoard[i][j] === "O") {
-        oCnt++;
-      } else if (tempBoard[i][j] === "X") {
-        xCnt++;
+      if (tempBoard[i][j] === secondTurn) {
+        secondTurnCnt++;
+      } else if (tempBoard[i][j] === firstTurn) {
+        firstTurnCnt++;
       } else {
         spaceCnt++;
       }
     }
   }
-  let difference = xCnt - oCnt;
+  let difference = firstTurnCnt - secondTurnCnt;
   if (difference === 0) {
-    if (isAvailable(tempBoard) === "O") {
+    if (isAvailable(tempBoard) === secondTurn) {
       return true;
     }
   } else if (difference === 1) {
@@ -52,7 +59,7 @@ function setBoard(areas) {
         return true;
       }
     }
-    if (isAvailable(tempBoard) === "X") {
+    if (isAvailable(tempBoard) === firstTurn) {
       return true;
     }
   } else {
