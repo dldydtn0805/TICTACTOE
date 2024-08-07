@@ -8,7 +8,7 @@ const firstMan = document.querySelector(".first-turn");
 
 let score = 0;
 let answer;
-let firstTurn, secondTurn
+let firstTurn, secondTurn;
 
 init();
 
@@ -20,10 +20,10 @@ function init() {
     area.innerHTML = testCase[idx];
     idx++;
   });
-  let turns = ["X", "O"]
-  firstTurn = turns[Math.floor(Math.random()*turns.length)]
-  let rest = turns.filter((turn)=> turn !== firstTurn)
-  secondTurn = rest[0]
+  let turns = ["X", "O"];
+  firstTurn = turns[Math.floor(Math.random() * turns.length)];
+  let rest = turns.filter((turn) => turn !== firstTurn);
+  secondTurn = rest[0];
   firstMan.innerText = firstTurn;
   answer = setBoard(areas);
 }
@@ -48,19 +48,26 @@ function setBoard(areas) {
       }
     }
   }
+  console.log("");
   let difference = firstTurnCnt - secondTurnCnt;
   if (difference === 0) {
     if (isAvailable(tempBoard) === secondTurn) {
       return true;
+    } else {
+      return false;
     }
   } else if (difference === 1) {
     if (!spaceCnt) {
       if (isAvailable(tempBoard) === "No") {
         return true;
+      } else {
+        return false;
       }
     }
     if (isAvailable(tempBoard) === firstTurn) {
       return true;
+    } else {
+      return false;
     }
   } else {
     return false;
@@ -126,8 +133,8 @@ function isAvailable(board) {
     if (cross !== -1) {
       winner = board[1][1];
     }
-    return winner;
   }
+  return winner;
 }
 
 oButton.addEventListener("click", () => {
